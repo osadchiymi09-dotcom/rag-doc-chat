@@ -1,0 +1,12 @@
+# Ядро (обязательно)
+requests>=2.31
+
+# PDF-документы (опционально — без pypdf .pdf просто пропускаются)
+pypdf>=4.0
+
+# Семантический реранк (опционально, ~2 ГБ) — без него работает BM25
+# sentence-transformers>=3.0
+
+# Внешние утилиты (не pip):
+#   whisper.cpp  — локальная расшифровка голоса: https://github.com/ggerganov/whisper.cpp
+#   afconvert (macOS) или ffmpeg — конвертация ogg → wav
