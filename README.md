@@ -27,13 +27,15 @@ $ python -m app.cli --docs docs/ -q "Нужен ли опыт для стажи�
 📎 company.md
 ```
 
+> 🔑 **Ключ у каждого свой (BYOK).** В репозитории нет и не будет ничьих ключей. Каждый пользователь вписывает **свой** `OPENROUTER_API_KEY` в `.env` — в `.env.example` только заглушка. Никогда не коммить `.env` и ключи.
+
 ## Установка
 
 ```bash
 git clone https://github.com/osadchiymi09-dotcom/rag-doc-chat
 cd rag-doc-chat
 pip install -r requirements.txt            # pypdf — только если нужен PDF
-cp .env.example .env                       # впиши OPENROUTER_API_KEY
+cp .env.example .env                       # впиши СВОЙ OPENROUTER_API_KEY
 python -m app.cli --docs docs/             # CLI-режим
 ```
 
