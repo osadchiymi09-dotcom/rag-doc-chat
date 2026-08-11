@@ -26,9 +26,11 @@ def build_pipeline(docs_dir: str):
 
 def ask(retriever: Retriever, generator: Generator, question: str) -> str:
     """Один вопрос → строка с ответом и источниками."""
-    hits = retriever.search(question, top_k=5)
+    hits = retriever.search(question, top_k=12)
     if not hits:
         return "Не нашёл ничего по такому вопросу в документах."
+    # Семантический реранк, если есть sentence-transformers; иначе порядок BM25.
+    hits = retriever.rerank(question, hits, top_k=5)
     best = [ch for ch, _ in hits]
     answer = generator.answer(question, best)
     out = answer.text
